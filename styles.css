@@ -1,0 +1,68 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0px;
+    background-color: #0e3b43;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    font-size: 48px;
+    background-color: azure;
+    text-align: center;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+}
+
+footer {
+    background-color: azure;
+    text-align: center;
+}
+
+.selections {
+    flex: 1;
+    display: flex;
+    padding: 60px;
+    gap: 60px;
+}
+
+.outcomes {
+    flex: 3;
+    display: flex;
+    padding: 60px;
+    gap: 60px;
+}
+
+.selections > div {
+    flex: 1;
+    background-color: #357266;
+    color: white;
+    font-weight: 500;
+    border-radius: 20px;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.outcomes > div {
+    flex: 1;
+    background-color: #357266;
+    color: white;
+    font-weight: 500;
+    border-radius: 20px;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
