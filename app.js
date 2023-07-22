@@ -1,6 +1,6 @@
 let userChoice = "";
 let computerChoice = "";
-let result = "";
+let roundResult = "";
 let userScore = 0;
 let computerScore = 0;
 let winner = "";
@@ -32,36 +32,36 @@ function determineRoundWinner() {
     // User chooses Rock
     if (userChoice == "Rock") {
         if (computerChoice == "Rock") {
-            result = "Tie!";
+            roundResult = "Tie!";
         } else if (computerChoice == "Scissors") {
-            result = "You Win!";
+            roundResult = "You Win!";
             userScore++;
         } else if (computerChoice == "Paper") {
-            result = "You Lose!";
+            roundResult = "You Lose!";
             computerScore++;
         }
     } 
     // User chooses Paper
         else if (userChoice == "Paper") {
             if (computerChoice == "Paper") {
-                result = "Tie!";
+                roundResult = "Tie!";
             } else if (computerChoice == "Rock") {
-                result = "You Win!";
+                roundResult = "You Win!";
                 userScore++;
             } else if (computerChoice == "Scissors") {
-                result = "You Lose!";
+                roundResult = "You Lose!";
                 computerScore++;
             }
         }
     // User chooses Scissors
         else if (userChoice == "Scissors") {
             if (computerChoice == "Scissors") {
-                result = "Tie!";
+                roundResult = "Tie!";
             } else if (computerChoice == "Paper") {
-                result = "You Win!";
+                roundResult = "You Win!";
                 userScore++;
             } else if (computerChoice == "Rock") {
-                result = "You Lose!";
+                roundResult = "You Lose!";
                 computerScore++;
             }
         }
@@ -71,7 +71,7 @@ function playRound() {
     getComputerChoice();
     getUserChoice();
     determineRoundWinner();
-    console.log(result);
+    console.log(roundResult);
     console.log(userScore);
     console.log(computerScore);
 }
