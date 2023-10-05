@@ -25,6 +25,7 @@ function getUserChoice() {
     while (userChoice != "Rock" && userChoice != "Paper" && userChoice != "Scissors") {
         userChoice = prompt("Choose one of the following: Rock, Paper, Scissors?");
     }
+    
     return userChoice;
 }
 
