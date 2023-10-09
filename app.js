@@ -4,6 +4,40 @@ let roundResult = "";
 let userScore = 0;
 let computerScore = 0;
 let winner = "";
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
+let user = document.querySelector('.user');
+let computer = document.querySelector('.computer');
+let userContainer = document.querySelector('.userContainer');
+let computerContainer = document.querySelector('.computerContainer');
+let userScoreDisplay = document.createElement('div');
+let computerScoreDisplay = document.createElement('div');
+updateDOM();
+
+rock.addEventListener('click', () => {
+    userChoice = 'Rock';
+    getComputerChoice();
+    determineRoundWinner();
+    updateDOM();
+    checkGameStatus();
+})
+
+paper.addEventListener('click', () => {
+    userChoice = 'Paper';
+    getComputerChoice();
+    determineRoundWinner();
+    updateDOM();
+    checkGameStatus();
+})
+
+scissors.addEventListener('click', () => {
+    userChoice = 'Scissors';
+    getComputerChoice();
+    determineRoundWinner();
+    updateDOM();
+    checkGameStatus();
+})
 
 function getComputerChoice() {
     const number = Math.random()*10;
@@ -19,73 +53,53 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-function getUserChoice() {
-    userChoice = prompt("Rock, Paper, Scissors?");
-    
-    while (userChoice != "Rock" && userChoice != "Paper" && userChoice != "Scissors") {
-        userChoice = prompt("Choose one of the following: Rock, Paper, Scissors?");
-    }
-    
-    return userChoice;
-}
-
 function determineRoundWinner() {
-    // User chooses Rock
     if (userChoice == "Rock") {
         if (computerChoice == "Rock") {
-            roundResult = "Tie!";
         } else if (computerChoice == "Scissors") {
-            roundResult = "You Win!";
             userScore++;
         } else if (computerChoice == "Paper") {
-            roundResult = "You Lose!";
             computerScore++;
         }
     } 
-    // User chooses Paper
         else if (userChoice == "Paper") {
             if (computerChoice == "Paper") {
-                roundResult = "Tie!";
             } else if (computerChoice == "Rock") {
-                roundResult = "You Win!";
                 userScore++;
             } else if (computerChoice == "Scissors") {
-                roundResult = "You Lose!";
                 computerScore++;
             }
         }
-    // User chooses Scissors
         else if (userChoice == "Scissors") {
             if (computerChoice == "Scissors") {
-                roundResult = "Tie!";
             } else if (computerChoice == "Paper") {
-                roundResult = "You Win!";
                 userScore++;
             } else if (computerChoice == "Rock") {
-                roundResult = "You Lose!";
                 computerScore++;
             }
         }
 }
 
-function playRound() {
-    getComputerChoice();
-    getUserChoice();
-    determineRoundWinner();
-    console.log(roundResult);
-    console.log(userScore);
-    console.log(computerScore);
+function updateDOM() {
+    userScoreDisplay.textContent = userScore;
+    userContainer.appendChild(userScoreDisplay);
+    computerScoreDisplay.textContent = computerScore;
+    computerContainer.appendChild(computerScoreDisplay);
 }
 
-function playGame() {
-    while (userScore < 5 && computerScore < 5) {
-        playRound();
+function checkGameStatus() {
+    user.classList.remove('win')
+    computer.classList.remove('win')
+    if (userScore >= 5 || computerScore >= 5) {
+        if (userScore == 5) {
+            user.classList.add('win')
+            winner = "User";
+        } else if (computerScore == 5) {
+            winner = "Computer";
+            computer.classList.add('win')
+        }
+        console.log(`The winner is ${winner}!`);
+        userScore = 0;
+        computerScore = 0;
     }
-
-    if (userScore == 5) {
-        winner = "User";
-    } else if (computerScore == 5) {
-        winner = "Computer";
-    }
-    console.log(`The winner is ${winner}!`);
 }

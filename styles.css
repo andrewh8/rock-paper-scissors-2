@@ -24,6 +24,14 @@ main {
     gap: 20px;
 }
 
+main > p {
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    border: 0px;
+    padding: 0px;
+}
+
 footer {
     background-color: azure;
     text-align: center;
@@ -55,7 +63,7 @@ footer {
     align-items: center;
 }
 
-.outcomes > div {
+.user {
     flex: 1;
     background-color: #357266;
     color: white;
@@ -65,4 +73,32 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.user > p {
+    flex: 0;
+    margin: 0px;
+}
+
+.computer {
+    flex: 1;
+    background-color: #357266;
+    color: white;
+    font-weight: 500;
+    border-radius: 20px;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.computer > p {
+    flex: 0;
+    margin: 0px;
+}
+
+.win {
+    background-color: green;
 }
